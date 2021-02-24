@@ -16,10 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Cliente;
 import modelo.ClienteDAO;
 
-/**
- *
- * @author lguzman
- */
 @WebServlet(name = "Controlador", urlPatterns = {"/Controlador"})
 public class Controlador extends HttpServlet {
 

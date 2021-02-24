@@ -76,7 +76,7 @@ public class PruebaController extends HttpServlet {
                     editar(request, response);
                     break;
                 case "eliminar":
-                    eliminar(request, response);
+                    eliminar(request, response);//sirve paa eleminar
                     break;
                 default:
                     break;
