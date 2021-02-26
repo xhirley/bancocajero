@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controlador;
 
 import config.Encripta;
@@ -13,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Banco;
+import modelo.BancoDAO;
 import modelo.Cliente;
 import modelo.ClienteDAO;
 
@@ -42,19 +40,62 @@ public class Controlador extends HttpServlet {
                 request.getRequestDispatcher("principal.jsp").forward(request, response);
                 break;
             case "Banco":
-                switch (accion) {
-                    case "Listar":
-                        break;
-                    case "Agregar":
-                        break;
-                    case "Editar":
-                        break;
-                    case "Eliminar":
-                        break;
-                    default:
-                        throw new AssertionError();
+                try {
+                    BancoDAO bdao = new BancoDAO(jdbcURL, jdbcUsername, jdbcPassword);
+                      Banco ban = new Banco();
+                    int idBanco = 0;
+                    switch (accion) {
+                        case "Listar":
+                        case "Nuevo":
+                            List lista = bdao.listar();
+                            request.setAttribute("bancos", lista);
+                            request.getRequestDispatcher("bancos.jsp").forward(request, response);
+                            break;
+
+                        case "Agregar":  
+                            String razon = request.getParameter("txtRazon");
+                            String logo = request.getParameter("txtLogo");
+
+                            ban.setRazon(razon);
+                            ban.setLogo(logo);
+                            bdao.agregar(ban);
+                            request.getRequestDispatcher("Controlador?menu=Banco&accion=Listar").forward(request, response);
+                            break;
+
+                        case "Editar":
+                            idBanco = Integer.parseInt(request.getParameter("id"));
+                            ban = bdao.getBanco(idBanco);
+                            request.setAttribute("banco", ban);
+                            request.getRequestDispatcher("Controlador?menu=Banco&accion=Listar").forward(request, response);
+
+                            break;
+                        case "Actualizar":
+                            idBanco = Integer.parseInt(request.getParameter("txtId"));
+                            razon = request.getParameter("txtRazon");
+                            logo = request.getParameter("txtLogo");
+
+                            ban.setId(idBanco);
+                            ban.setRazon(razon);
+                            ban.setLogo(logo);
+                            
+                            bdao.actualizar(ban);
+                            request.getRequestDispatcher("Controlador?menu=Banco&accion=Listar").forward(request, response);
+
+                            break;
+                            
+                        case "Eliminar":
+                            idBanco = Integer.parseInt(request.getParameter("id"));
+                            bdao.eliminar(idBanco);
+                            request.getRequestDispatcher("Controlador?menu=Banco&accion=Listar").forward(request, response);
+
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
-                request.getRequestDispatcher("banco.jsp").forward(request, response);
+
                 break;
             case "Cliente":
                 try {

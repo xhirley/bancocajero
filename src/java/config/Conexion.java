@@ -22,6 +22,8 @@ public class Conexion {
 		this.jdbcPassword = jdbcPassword;
 	}
 
+  
+
 	public void conectar() throws SQLException {
         if (jdbcConnection == null || jdbcConnection.isClosed()) {
             try {

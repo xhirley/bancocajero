@@ -1,7 +1,4 @@
-<%-- 
-    Document   : cliente
-    Created on : 22/02/2021, 21:55:25  
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -21,7 +21,7 @@
                         <a href="#" class="btn btn-outline-light" style="margin-left:10px; border:none">Inicio </a>
                     </li>
                     <li class="nav-item">
-                        <a  href="Controlador?menu=Banco" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Banco</a>
+                        <a  href="Controlador?menu=Banco&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Banco</a>
                     </li>
                     <li class="nav-item">
                         <a  href="Controlador?menu=Cliente&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Clientes</a>
