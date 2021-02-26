@@ -26,8 +26,14 @@
                     <li class="nav-item">
                         <a  href="Controlador?menu=Cliente&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Clientes</a>
                     </li> 
+                     <li class="nav-item">
+                        <a  href="Controlador?menu=Cuenta&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Cuentas</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a  href="Controlador?menu=Registrar_Cuentas&accion=default" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Registrar cuentas</a>
+                    </li> 
                       <li class="nav-item">
-                        <a  href="Controlador?menu=Saldos" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Saldos</a>
+                        <a  href="Controlador?menu=Saldos&accion=listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Saldos</a>
                     </li> 
                     <li class="nav-item">
                         <div class="dropdown">

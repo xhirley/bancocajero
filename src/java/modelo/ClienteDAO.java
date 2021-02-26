@@ -44,6 +44,35 @@ public class ClienteDAO {
         return cliente;
     }
 
+        public Cliente Buscar(String cedula) {
+        Cliente cliente = new Cliente();
+        String sql = "selct * from cliente where cedula=" + cedula;
+
+        try {
+            con.conectar();
+            connection = con.getJdbcConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+                
+                cliente.setId(rs.getInt("id"));
+                cliente.setUsuario(rs.getString("usuario"));
+                cliente.setClave("CLAVE PROTEGIDA");
+                cliente.setCedula(rs.getString("cedula"));
+                cliente.setNombres(rs.getString("nombres"));
+                cliente.setApellidos(rs.getString("apellidos"));
+                cliente.setCorreo(rs.getString("correo"));
+                cliente.setCelular(rs.getString("celular"));
+                cliente.setEsadmin(rs.getBoolean("esadmin"));
+   
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return cliente;
+    }
+ 
+    
     public List listar() {
         String sql = "select * from cliente";
         List<Cliente> lista = new ArrayList<>();
@@ -51,8 +80,8 @@ public class ClienteDAO {
             con.conectar();
             connection = con.getJdbcConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
-
             ResultSet rs = ps.executeQuery();
+            
             while (rs.next()) {
                 Cliente cliente = new Cliente();
                 cliente.setId(rs.getInt("id"));
