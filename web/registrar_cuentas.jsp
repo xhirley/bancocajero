@@ -18,15 +18,15 @@
         <div class="d-flex">
             <div class="col-sm-4 parte01"> 
                 <div class="card">
-                    <form action="Controlador?menu=Registrar_Cuentas" method="post">
+                    <form action="Controlador?menu=Registrar_C" method="post">
                         <div class="card-body"> 
                             <div class="form-group">
                                 <label>Datos de Cliente </label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigocliente" class="form-control" placeholder="Codigo">
-                                    <input type="submit" name="accion" value="BuscarCliente" class=" btn btn-outline-info">
+                                    <input type="text" name="codigocliente" value="${cliente.getCedula()}"class="form-control" placeholder="Codigo">
+                                    <button type="submit" name="accion" value="BuscarCliente" class=" btn btn-outline-info">Buscar</button>
                                 </div>
                                 <div class="col-sm-6">
                                     <input type=" text" name="nombrescliente" class="form-control" placeholder="Datos cliente">
@@ -96,7 +96,7 @@
                     </div>
                     <div class="card-footer d-flex">
                         <div class="col-sm-8">
-                            <a href="Controlador?menu=Registrar_Cuentas&accion=Registrar_Cuentas"  onclick="print()"class="btn btn-outline-success">Generar Cuenta</a>
+                            <a href="Controlador?menu=Registrar_C"  onclick="print()"class="btn btn-outline-success">Generar Cuenta</a>
                             <input type=" submit" name="accion" value="Cancelar" class="btn btn-outline-danger">
                         </div>
                      

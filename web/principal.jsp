@@ -30,7 +30,7 @@
                         <a  href="Controlador?menu=Cuenta&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Cuentas</a>
                     </li> 
                     <li class="nav-item">
-                        <a  href="Controlador?menu=Registrar_Cuentas&accion=default" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Registrar cuentas</a>
+                        <a  href="Controlador?menu=Registrar_C&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Registrar cuentas</a>
                     </li> 
                       <li class="nav-item">
                         <a  href="Controlador?menu=Saldos&accion=listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Saldos</a>
