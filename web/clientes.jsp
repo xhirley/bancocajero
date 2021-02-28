@@ -86,10 +86,10 @@
                                     </c:choose>
                                 </td>
                                 <td>${c.getUsuario()}</td>                                
-                                <td>
+                                <td class="d-flex">
                                     <a href="Controlador?menu=Cliente&accion=Editar&id=${c.getId()}" class="btn btn-warning"> Editar</a>
-                                    <a href="Controlador?menu=Cliente&accion=Eliminar&id=${c.getId()}" class="btn btn-danger"> Eliminar</a>                                 
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="cargarUsuario(${c.getId()},'${c.getUsuario()}' )">Usuario</button>
+                                    <a href="Controlador?menu=Cliente&accion=Eliminar&id=${c.getId()}" class="btn btn-danger ml-1"> Eliminar</a>                                 
+                                    <button type="button" class="btn btn-primary ml-1" data-toggle="modal" data-target="#myModal" onclick="cargarUsuario(${c.getId()},'${c.getUsuario()}' )">Usuario</button>
                                 </td>
                             </tr>
                         </c:forEach>

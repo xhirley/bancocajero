@@ -1,5 +1,5 @@
 <%-- marco de trabajo getbootstrap--%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,35 +18,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a href="#" class="btn btn-outline-light" style="margin-left:10px; border:none">Inicio </a>
+                        <a href="Controlador?menu=Inicio" target="myFrame"  class="btn btn-outline-light" style="margin-left:10px; border:none">Inicio </a>
                     </li>
+                    <c:if test = "${usuario.isEsadmin()}">                    
+                        <li class="nav-item">
+                            <a  href="Controlador?menu=Banco&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Banco</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  href="Controlador?menu=Cliente&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  href="Controlador?menu=Registrar_C&accion=Listar&filtro=" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Registrar cuentas</a>
+                        </li> 
+                    </c:if>
                     <li class="nav-item">
-                        <a  href="Controlador?menu=Banco&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Banco</a>
-                    </li>
-                    <li class="nav-item">
-                        <a  href="Controlador?menu=Cliente&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Clientes</a>
+                        <a  href="Controlador?menu=Saldos&accion=Listar&idCliente=${usuario.getId()}" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Saldos</a>
                     </li> 
-                     <li class="nav-item">
-                        <a  href="Controlador?menu=Cuenta&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Cuentas</a>
-                    </li> 
-                    <li class="nav-item">
-                        <a  href="Controlador?menu=Registrar_C&accion=Listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Registrar cuentas</a>
-                    </li> 
-                      <li class="nav-item">
-                        <a  href="Controlador?menu=Saldos&accion=listar" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Saldos</a>
-                    </li> 
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn btn-outline-light dropdown-toggle" style="border:none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Transacciones
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="Controlador?menu=Transferencia" target="myFrame">Transferencia</a>
-                                <a class="dropdown-item" href="Controlador?menu=Retiro" target="myFrame">Retiro</a>
-                                <a class="dropdown-item" href="Controlador?menu=Deposito" target="myFrame">Depósito</a>
-                            </div>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
             <div class="dropdown dropleft">
@@ -67,8 +55,8 @@
                 </div>
             </div>
         </nav>
-        <div class="m-4" style="height: 550px">
-            <iframe name="myFrame" style="height: 100%; width: 100%; border:none;"></iframe>
+        <div class="m-4" style="height: 600px">
+            <iframe name="myFrame" style="height: 100%; width: 100%; border:none;" src="inicio.jsp"></iframe>
         </div>
 
 

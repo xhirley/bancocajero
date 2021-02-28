@@ -18,6 +18,12 @@ public class Transaccion {
      *
      */
     private int id;
+    
+    /**
+     * Cuenta Id
+     */
+    private int cueId;
+    
     /**
      * Fecha Hora Transaccion
      *
@@ -28,8 +34,13 @@ public class Transaccion {
      *
      */
     private double monto;
+    
     /**
-     * Tipo Transaccion
+     * Accion Deposito Retiro Transferencia
+     */
+    private String accion;
+    /**
+     * Tipo Transaccion Debito Credito
      *
      */
     private String tipo;
@@ -175,5 +186,37 @@ public class Transaccion {
      */
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
+    }
+
+    /**
+     * Accion Deposito Retiro Transferencia
+     * @return the accion
+     */
+    public String getAccion() {
+        return accion;
+    }
+
+    /**
+     * Accion Deposito Retiro Transferencia
+     * @param accion the accion to set
+     */
+    public void setAccion(String accion) {
+        this.accion = accion;
+    }
+
+    /**
+     * Cuenta Id
+     * @return the cueId
+     */
+    public int getCueId() {
+        return cueId;
+    }
+
+    /**
+     * Cuenta Id
+     * @param cueId the cueId to set
+     */
+    public void setCueId(int cueId) {
+        this.cueId = cueId;
     }
 }

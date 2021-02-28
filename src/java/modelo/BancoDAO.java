@@ -66,14 +66,13 @@ public class BancoDAO {
     }
 
     public int agregar(Banco ban) {
-        String sql = "insert into banco (id,razon, logo) values(?,?,?)";
+        String sql = "insert into banco (razon, logo) values(?,?)";
         try {
             con.conectar();
             connection = con.getJdbcConnection();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, ban.getId());
-            ps.setString(2,ban.getRazon());
-            ps.setString(3, ban.getLogo());
+            PreparedStatement ps = connection.prepareStatement(sql);           
+            ps.setString(1,ban.getRazon());
+            ps.setString(2, ban.getLogo());
             
             ps.executeUpdate();
         } catch (Exception e) {

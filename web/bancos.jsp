@@ -14,21 +14,24 @@
             <div class="card col-sm-4">
                 <div class="card-body" >
                     <form action="Controlador?menu=Banco" method="POST">
-                        <div class="form-group">
-                            <label>codigo</label>
-                            <input type="text" value="${ban.getId()}" name="txtId" class="form-control">  
-                        </div> 
+                        <input type="hidden" value="${ban.getId()}" name="txtId" class="form-control">  
+                       
                         <div class="form-group">
                             <label>Razon Social:</label>
                             <input type="text" value="${ban.getRazon()}" name="txtRazon" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label>logo</label>
-                            <input type="text" value="${ban.getLogo()}" name="txtLogo" class="form-control">
-                        </div>
                        
-                        <input type="submit" name="accion" value="Agregar" class="btn btn-info">
-                        <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
+                        <input type="hidden" value="${ban.getLogo()}" name="txtLogo" class="form-control">
+                       
+                        <c:choose>
+                            <c:when test="${ban.getRazon() == null}"> 
+                                <input type="submit" name="accion" value="Agregar" class="btn btn-primary">
+                            </c:when>                                    
+                            <c:otherwise>
+                                <input type="submit" name="accion" value="Nuevo" class="btn btn-primary">
+                                <input type="submit" name="accion" value="Actualizar" class="btn btn-warning">
+                            </c:otherwise>   
+                        </c:choose>
                     </form>
                 </div>
             </div>
@@ -50,7 +53,7 @@
                                 <td>${banco.getLogo()}</td>  
                                 <td>
                                     <a class="btn btn-warning" href="Controlador?menu=Banco&accion=Editar&id=${banco.getId()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Banco&accion=Delete&id=${banco.getId()}">delete</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Banco&accion=Eliminar&id=${banco.getId()}">delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

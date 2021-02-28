@@ -1,55 +1,64 @@
-
 package modelo;
 
 import java.util.List;
 
 public class Cliente {
-    
-    /** Id secuencial cliente
-    * 
-    */
-   private int id;
-   /** Usuario cliente
-    * 
-    */
-   private String usuario;
-   /** Clave cliente
-    * 
-   */
-   private String clave;
-   /** Cedula clilente
-    * 
-   */
-   private String cedula;
-   /** Nombres cliente
-    * 
-    */
-   private String nombres;
-   /** Apellidos cliente
-    * 
-    */
-   private String apellidos;
-   /** Correo cliente
-    * 
-  */
-   private String correo;
-   /** Celular cliente
-    * 
-    */
-   private String celular;
-   
-    /** Es administrador
-    * 
-     */
-   private boolean esadmin;
-   
-   /**
-    * Relacion Cuenta
-    */
-   private List<Cuenta> cuenta;
 
     /**
      * Id secuencial cliente
+     *
+     */
+    private int id;
+    /**
+     * Usuario cliente
+     *
+     */
+    private String usuario;
+    /**
+     * Clave cliente
+     *
+     */
+    private String clave;
+    /**
+     * Cedula clilente
+     *
+     */
+    private String cedula;
+    /**
+     * Nombres cliente
+     *
+     */
+    private String nombres;
+    /**
+     * Apellidos cliente
+     *
+     */
+    private String apellidos;
+    /**
+     * Correo cliente
+     *
+     */
+    private String correo;
+    /**
+     * Celular cliente
+     *
+     */
+    private String celular;
+
+    /**
+     * Es administrador
+     *
+     */
+    private boolean esadmin;
+
+    /**
+     * Relacion Cuenta
+     */
+    private List<Cuenta> cuenta;
+
+    /**
+     * Id secuencial cliente
+     *
      * @return the id
      */
     public int getId() {
@@ -58,6 +67,7 @@ public class Cliente {
 
     /**
      * Id secuencial cliente
+     *
      * @param id the id to set
      */
     public void setId(int id) {
@@ -66,6 +76,7 @@ public class Cliente {
 
     /**
      * Usuario cliente
+     *
      * @return the usuario
      */
     public String getUsuario() {
@@ -74,6 +85,7 @@ public class Cliente {
 
     /**
      * Usuario cliente
+     *
      * @param usuario the usuario to set
      */
     public void setUsuario(String usuario) {
@@ -82,6 +94,7 @@ public class Cliente {
 
     /**
      * Clave cliente
+     *
      * @return the clave
      */
     public String getClave() {
@@ -90,6 +103,7 @@ public class Cliente {
 
     /**
      * Clave cliente
+     *
      * @param clave the clave to set
      */
     public void setClave(String clave) {
@@ -98,6 +112,7 @@ public class Cliente {
 
     /**
      * Cedula clilente
+     *
      * @return the cedula
      */
     public String getCedula() {
@@ -106,6 +121,7 @@ public class Cliente {
 
     /**
      * Cedula clilente
+     *
      * @param cedula the cedula to set
      */
     public void setCedula(String cedula) {
@@ -114,6 +130,7 @@ public class Cliente {
 
     /**
      * Nombres cliente
+     *
      * @return the nombres
      */
     public String getNombres() {
@@ -122,6 +139,7 @@ public class Cliente {
 
     /**
      * Nombres cliente
+     *
      * @param nombres the nombres to set
      */
     public void setNombres(String nombres) {
@@ -130,6 +148,7 @@ public class Cliente {
 
     /**
      * Apellidos cliente
+     *
      * @return the apellidos
      */
     public String getApellidos() {
@@ -138,6 +157,7 @@ public class Cliente {
 
     /**
      * Apellidos cliente
+     *
      * @param apellidos the apellidos to set
      */
     public void setApellidos(String apellidos) {
@@ -146,6 +166,7 @@ public class Cliente {
 
     /**
      * Correo cliente
+     *
      * @return the correo
      */
     public String getCorreo() {
@@ -154,6 +175,7 @@ public class Cliente {
 
     /**
      * Correo cliente
+     *
      * @param correo the correo to set
      */
     public void setCorreo(String correo) {
@@ -162,6 +184,7 @@ public class Cliente {
 
     /**
      * Celular cliente
+     *
      * @return the celular
      */
     public String getCelular() {
@@ -170,6 +193,7 @@ public class Cliente {
 
     /**
      * Celular cliente
+     *
      * @param celular the celular to set
      */
     public void setCelular(String celular) {
@@ -178,6 +202,7 @@ public class Cliente {
 
     /**
      * Relacion Cuenta
+     *
      * @return the cuenta
      */
     public List<Cuenta> getCuenta() {
@@ -186,6 +211,7 @@ public class Cliente {
 
     /**
      * Relacion Cuenta
+     *
      * @param cuenta the cuenta to set
      */
     public void setCuenta(List<Cuenta> cuenta) {
@@ -194,6 +220,7 @@ public class Cliente {
 
     /**
      * Es administrador
+     *
      * @return the esadmin
      */
     public boolean isEsadmin() {
@@ -202,15 +229,18 @@ public class Cliente {
 
     /**
      * Es administrador
+     *
      * @param esadmin the esadmin to set
      */
     public void setEsadmin(boolean esadmin) {
         this.esadmin = esadmin;
     }
 
-    
-    
-    
-    
-    
+    public String getNombreCompletos() {
+        if (this.apellidos == null) {
+            return "";
+        }
+        return this.apellidos + ' ' + this.nombres;
+    }
+
 }
