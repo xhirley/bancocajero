@@ -18,23 +18,23 @@
                         <input type="hidden" name="txtId" value="${cliente.getId()}" class="form-control">
                         <div class="form-group">
                             <label>Cédula:</label>
-                            <input type="text" name="txtCedula" value="${cliente.getCedula()}" class="form-control" required="">
+                            <input type="text" name="txtCedula"  onkeypress="return valideKey(event);"  maxlength="4" value="${cliente.getCedula()}" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Nombres:</label>
-                            <input type="text" name="txtNombres" value="${cliente.getNombres()}" class="form-control" required="">
+                            <input type="text" name="txtNombres" maxlength="30" onkeypress="return soloLetras(event)" onblur="limpia()" value="${cliente.getNombres()}" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Apellidos:</label>
-                            <input type="text" name="txtApellidos" value="${cliente.getApellidos()}" class="form-control" required="">
+                            <input type="text" name="txtApellidos" maxlength="30" onkeypress="return soloLetras(event)" onblur="limpia()" value="${cliente.getApellidos()}" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Correo:</label>
-                            <input type="email" name="txtCorreo" value="${cliente.getCorreo()}" class="form-control" required="">
+                            <input type="email"  name="txtCorreo" value="${cliente.getCorreo()}" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Celular:</label>
-                            <input type="text" name="txtCelular" value="${cliente.getCelular()}" class="form-control" >
+                            <input type="text" name="txtCelular" onkeypress="return valideKey(event);"  maxlength="10" value="${cliente.getCelular()}" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>Es administrador:</label>
@@ -107,11 +107,11 @@
                                 <input type="hidden" name="txtId2"  id="txtId2" value="" class="form-control">
                                 <div class="form-group">
                                     <label>Usuario</label>
-                                    <input type="text" name="txtUsuario" id="txtUsuario" value="" class="form-control" required="">
+                                    <input type="text" name="txtUsuario" onkeypress="return soloLetras(event)" onblur="limpia()" maxlength="10" id="txtUsuario" value="" class="form-control" required="">
                                 </div>
                                 <div class="form-group">
                                     <label>Clave:</label>
-                                    <input type="password" name="txtClave" id="txtClave" value="" class="form-control" required="">
+                                    <input type="password" name="txtClave" maxlength="10" id="txtClave" value="" class="form-control" required="">
                                 </div>
                                  <input type="submit" name="accion" value="GuardarUsuario" class="btn btn-primary">                                
                             </form>
@@ -129,5 +129,52 @@
                 $('#txtUsuario').val(usuario);
             }
         </script>
+        
+        <script>
+  function soloLetras(e) {
+      key = e.keyCode || e.which;
+      tecla = String.fromCharCode(key).toLowerCase();
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+      especiales = [8, 37, 39, 46];
+  
+      tecla_especial = false
+      for(var i in especiales) {
+          if(key == especiales[i]) {
+              tecla_especial = true;
+              break;
+          }
+      }
+  
+      if(letras.indexOf(tecla) == -1 && !tecla_especial)
+          return false;
+  }
+  
+  function limpia() {
+      var val = document.getElementById("miInput").value;
+      var tam = val.length;
+      for(i = 0; i < tam; i++) {
+          if(!isNaN(val[i]))
+              document.getElementById("miInput").value = '';
+      }
+      
+  }
+  </script>
+  
+  <script type="text/javascript">
+		function valideKey(evt){
+			
+			// code is the decimal ASCII representation of the pressed key.
+			var code = (evt.which) ? evt.which : evt.keyCode;
+			
+			if(code==8) { // backspace.
+			  return true;
+			} else if(code>=48 && code<=57) { // is a number.
+			  return true;
+			} else{ // other keys.
+			  return false;
+			}
+		}
+		</script>
+  
     </body>
 </html>

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : inicio
-    Created on : 27/02/2021, 23:11:52
-  
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="44683e3b-6573-4fe1-8752-12c38c84c34a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     cuenta."numero" AS cuenta_numero,
+     cuenta."tipo" AS cuenta_tipo,
+     cuenta."saldo" AS cuenta_saldo,
+     banco."razon" AS banco_razon,
+     cliente."cedula" AS cliente_cedula,
+     cliente."nombres" AS cliente_nombres,
+     cliente."apellidos" AS cliente_apellidos,
+     cliente."correo" AS cliente_correo
+FROM
+     "public"."banco" banco INNER JOIN "public"."cuenta" cuenta ON banco."id" = cuenta."ban_id"
+     INNER JOIN "public"."cliente" cliente ON cuenta."cli_id" = cliente."id"
+
+order by 
+ cuenta."numero"]]>
+	</queryString>
+	<field name="cuenta_numero" class="java.lang.String"/>
+	<field name="cuenta_tipo" class="java.lang.String"/>
+	<field name="cuenta_saldo" class="java.math.BigDecimal"/>
+	<field name="banco_razon" class="java.lang.String"/>
+	<field name="cliente_cedula" class="java.lang.String"/>
+	<field name="cliente_nombres" class="java.lang.String"/>
+	<field name="cliente_apellidos" class="java.lang.String"/>
+	<field name="cliente_correo" class="java.lang.String"/>
+	<group name="cuenta_numero">
+		<groupExpression><![CDATA[$F{cuenta_numero}]]></groupExpression>
+	</group>
+	<group name="PorCuenta">
+		<groupExpression><![CDATA[$F{cuenta_numero}]]></groupExpression>
+		<groupHeader>
+			<band height="43"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement x="141" y="42" width="312" height="42" uuid="f137ae4c-7361-4672-bb3e-e85cbc2b25b1"/>
+				<textElement>
+					<font fontName="Bodoni MT" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTES  POR CUENTA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="421" y="0" width="80" height="20" uuid="148536f0-6b95-40d8-bc1d-6316747e30b2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="501" y="0" width="40" height="20" uuid="482a3dc7-b622-444f-8ce0-a4a2a6268a78"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="453" y="22" width="100" height="20" uuid="e7f47bf5-05ec-4746-bc35-f62e0594e6a4"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="4" width="118" height="70" uuid="ed3cc0c2-d8ca-47cd-9961-f95354d47e69"/>
+				<imageExpression><![CDATA["C:\\Users\\G\\Desktop\\descarga.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="79" y="0" width="79" height="20" uuid="912013d9-d846-4731-a68c-5a9f770ea798"/>
+				<text><![CDATA[APELLIDOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="0" width="79" height="20" uuid="8329558c-2e7d-4a4c-a4d4-4ada23be18a4"/>
+				<text><![CDATA[BANCO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="79" height="20" uuid="61d862eb-a060-4eeb-907b-71d66dbc51b5"/>
+				<text><![CDATA[TIPO CTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="79" height="20" uuid="ea3f12df-ea25-48a1-8e14-d5ac8a82505c"/>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="0" width="79" height="20" uuid="aff54b23-e946-4083-9de8-94d98a4fe0f0"/>
+				<text><![CDATA[NOMBRES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="79" y="0" width="79" height="20" uuid="aa73c7d6-c85e-4aea-8f90-518c13508765"/>
+				<textFieldExpression><![CDATA[$F{cliente_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="0" width="79" height="20" uuid="b9292dcb-2823-4805-a890-da591601f2bc"/>
+				<textFieldExpression><![CDATA[$F{banco_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="79" height="20" uuid="5b622c4e-f4b7-4a34-bd13-912ba6ba7ac5"/>
+				<textFieldExpression><![CDATA[$F{cliente_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="79" height="20" uuid="22c2e196-827a-4b9b-baf8-ee509f644122"/>
+				<textFieldExpression><![CDATA[$F{cliente_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="0" width="79" height="20" uuid="5e22458e-884d-4a5c-9f36-bde191ea2aec"/>
+				<textFieldExpression><![CDATA[$F{cuenta_tipo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

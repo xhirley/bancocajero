@@ -22,7 +22,7 @@
                     <h2>Mis Cuentas </h2>
                     <c:forEach var="cta" items="${cuentas}">
                         <form action="Controlador?menu=Saldos" method="post">
-                            <input type="hidden" name="ctaNumero" value="${cta.getNumero()}"class="form-control" placeholder="Numero Cta">
+                            <input type="hidden" name="ctaNumero"  value="${cta.getNumero()}"class="form-control" placeholder="Numero Cta">
                             <input type="hidden" name="idCuenta" value="${cta.getId()}"class="form-control" placeholder="Id Cta">
                             <input type="hidden" name="idCliente" value="${idCliente}"class="form-control" placeholder="Id Cliente">
 
