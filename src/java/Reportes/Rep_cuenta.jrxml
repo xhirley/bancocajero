@@ -34,7 +34,7 @@ order by
 	<group name="PorCuenta">
 		<groupExpression><![CDATA[$F{cuenta_numero}]]></groupExpression>
 		<groupHeader>
-			<band height="43"/>
+			<band height="5"/>
 		</groupHeader>
 		<groupFooter>
 			<band height="50"/>
@@ -75,7 +75,7 @@ order by
 		<band height="21" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="30" splitType="Stretch">
+		<band height="28" splitType="Stretch">
 			<staticText>
 				<reportElement x="79" y="0" width="79" height="20" uuid="912013d9-d846-4731-a68c-5a9f770ea798"/>
 				<text><![CDATA[APELLIDOS]]></text>

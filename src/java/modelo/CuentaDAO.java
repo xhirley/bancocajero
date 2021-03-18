@@ -248,7 +248,7 @@ public class CuentaDAO {
         return r;
 
     }
-
+ 
     public void eliminar(int id) {
         String sql = "delete from cuenta where id=" + id;
         try {

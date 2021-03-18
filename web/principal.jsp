@@ -30,14 +30,15 @@
                         <li class="nav-item">
                             <a  href="Controlador?menu=Registrar_C&accion=Listar&filtro=" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Registrar cuentas</a>
                         </li> 
+                         <li class="nav-item">
+                        <a  href="Reporte.jsp" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Reportes</a>
+                    </li> 
                     </c:if>
                     <li class="nav-item">
                         <a  href="Controlador?menu=Saldos&accion=Listar&idCliente=${usuario.getId()}" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Saldos</a>
                     </li> 
                     
-                     <li class="nav-item">
-                        <a  href="Reporte.jsp" target="myFrame" class="btn btn-outline-light" style="margin-left:10px; border:none">Reportes</a>
-                    </li> 
+                    
                 </ul>
             </div>
             <div class="dropdown dropleft">
